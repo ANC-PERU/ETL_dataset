@@ -27,7 +27,7 @@ countries = {
             }
 for code, country in countries.items():  
     print(f"Country {country} in progress...")
-    filename = f"file/{country}"
+    filename = f"dataset/{country}"
     os.makedirs(filename, exist_ok=True)      
     for goal in goals:
         payload = {
@@ -50,7 +50,7 @@ for code, country in countries.items():
             del csv_data
             df = pd.read_csv(csvStringIO, sep=",")
             if df.shape[0]>0:
-                df.to_csv(f'file/{country}/goal_{goal}.csv',index=None)
+                df.to_csv(f'dataset/{country}/goal_{goal}.csv',index=None)
                 del df
                 print(f"Goal {goal} done...")
 
